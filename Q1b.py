@@ -14,7 +14,7 @@ def gauss_with_total_pivoting(matrix, vector):
     def print_matrix_step(Ab, step):
         print(f"\nEtapa {step}:\n")
         for row in Ab:
-            print(" ".join(f"{elem:>10.4f}" for elem in row))
+            print(" ".join(f"{elem:>16.10f}" for elem in row))
         print()
 
     # Algoritmo de eliminação de Gauss com pivotamento total
@@ -49,7 +49,7 @@ def gauss_with_total_pivoting(matrix, vector):
     x = np.zeros(n)
     for i in range(n - 1, -1, -1):
         x[i] = (Ab[i, -1] - np.dot(Ab[i, i + 1:n], x[i + 1:])) / Ab[i, i]
-        print(f"Retro-substituição para x{col_order[i] + 1}: {x[i]:.6f}")
+        print(f"Retro-substituição para x{col_order[i] + 1}: {x[i]:.10f}")
 
     # Reordenação do resultado final de acordo com as trocas de colunas
     x_final = np.zeros(n)

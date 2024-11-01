@@ -13,7 +13,7 @@ def gauss_with_steps(matrix, vector):
     def print_matrix_step(Ab, step):
         print(f"\nEtapa {step}:\n")
         for row in Ab:
-            print(" ".join(f"{elem:>10.4f}" for elem in row))
+            print(" ".join(f"{elem:>16.10f}" for elem in row))
         print()
 
     # Algoritmo de eliminação de Gauss
@@ -37,10 +37,10 @@ def gauss_with_steps(matrix, vector):
     x = np.zeros(n)
     for i in range(n - 1, -1, -1):
         x[i] = (Ab[i, -1] - np.dot(Ab[i, i + 1:n], x[i + 1:])) / Ab[i, i]
-        print(f"Retro-substituição para x{i + 1}: {x[i]:.6f}")
+        print(f"Retro-substituição para x{i + 1}: {x[i]:.10f}")
 
     # Exibindo a solução final
-    print("\nSolução final:")
+    print("\nSolução final:\n")
     print(x)
 
 # Exemplo de uso
